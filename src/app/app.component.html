@@ -1,0 +1,17 @@
+<header>
+  <nav>
+    <a routerLink="/">Home</a>
+   
+    <a *ngIf="(userrole | async) === 'ROLE_USER' " routerLink="/user">User</a>
+   
+      <a *ngIf="(userrole | async) === 'ROLE_ADMIN' " routerLink="/admin">Admin</a>
+
+   
+   <a routerLink="/register">Register</a>
+    <a routerLink="/login">Login</a>
+    <a (click)="logout()">Logout</a>
+    
+    
+  </nav>
+</header>
+<router-outlet></router-outlet>

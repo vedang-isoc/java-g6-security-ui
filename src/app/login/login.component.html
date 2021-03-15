@@ -1,0 +1,9 @@
+<p>login works!</p>
+<h1>Login Form</h1>
+<form [formGroup]="loginForm">
+    Username:<input type="text" formControlName="username"><br><br>
+    Password:<input type="password" formControlName="password"><br><br>
+    <input type="submit" value="Login" (click)="loginuser()">
+    
+</form>
+<div *ngIf="isLocked">Your Account has been locked</div>

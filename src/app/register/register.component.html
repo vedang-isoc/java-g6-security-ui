@@ -1,0 +1,9 @@
+<h1>Register Form</h1>
+<form [formGroup]="registerForm">
+
+    Username:<input type="text" formControlName="username"><br><br>
+    Email:<input type="text" formControlName="email"><br><br>
+    Password:<input type="password" formControlName="password"><br><br>
+    <input type="submit" value="Register" (click)="registeruser()">
+
+</form>
