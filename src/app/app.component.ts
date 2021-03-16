@@ -23,4 +23,8 @@ export class AppComponent {
 
   
   }
+  profile(){
+    this.route.navigate(["/createprofile"])
+
+  }
 }

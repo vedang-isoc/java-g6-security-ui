@@ -23,4 +23,11 @@ export class UserService {
      isActivated(userid){
        return this.http.get(environment.baseUserUrl+"user/isActivated/"+userid)
      }
+     createProfile(profile:any,userid,data){
+       return this.http.post(environment.baseUserUrl+"user/profile/"+userid,profile,data)
+
+     }
+     isProfileCreated(userid){
+       return this.http.get(environment.baseUserUrl+"user/isProfileCreated/"+userid)
+     }
 }

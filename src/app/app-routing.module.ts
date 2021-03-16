@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { AuthGuard } from './auth.guard';
+import { CreateprofileComponent } from './createprofile/createprofile.component';
 import { ErrorComponent } from './error/error.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:"admin",component:AdminhomeComponent,data:{role:"ROLE_ADMIN"}},
  
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent}
+  {path:"register",component:RegisterComponent},
+  {path:"createprofile",component:CreateprofileComponent}
 ];
 
 @NgModule({

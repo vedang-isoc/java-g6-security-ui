@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthinterceptorService } from './authinterceptor.service';
 import { RegisterComponent } from './register/register.component';
+import { CreateprofileComponent } from './createprofile/createprofile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterComponent } from './register/register.component';
     LandingComponent,
     ErrorComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateprofileComponent
   ],
   imports: [
     BrowserModule,
