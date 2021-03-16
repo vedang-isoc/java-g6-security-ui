@@ -18,14 +18,27 @@ export class CreateprofileComponent implements OnInit {
       fullName  : new FormControl(""),
       birthdate : new FormControl(""),
       gender    : new FormControl(""),
-      userImage :new FormControl(null)
+      userImage :new FormControl(null),
+
+    
+   
 
 
 
     })
+    this.uservice.isActivated(sessionStorage.getItem("userId")).subscribe((x)=>{
+      this.isActivated=x
+    })
+    this.uservice.isProfileCreated(sessionStorage.getItem("userId")).subscribe((x)=>{
+      this.isProfileCreated=x
+      console.log(this.isProfileCreated);
+      
+       })
   }
   title = 'ImageUploaderFrontEnd';
-
+  isActivated
+  isProfileCreated
+  Profile
   public selectedFile;
   public event1;
   imgURL: any;
