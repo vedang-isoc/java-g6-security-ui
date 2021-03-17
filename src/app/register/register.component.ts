@@ -10,7 +10,8 @@ import { UserService } from '../user.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private uservice:UserService) { }
-
+  email
+  username
   ngOnInit(): void {
     this.registerForm=new FormGroup({
       username :new FormControl(),
@@ -18,13 +19,40 @@ export class RegisterComponent implements OnInit {
       password: new FormControl()
 
     })
+  
   }
   registerForm: FormGroup
   registeruser(){
-    this.uservice.addUser(this.registerForm.value).subscribe((x)=>{
+    this.uservice.checkEmail(this.registerForm.value.email).subscribe((x)=>{
+      this.email=x
+   
+    if(!x){
+      this.uservice.checkUsername(this.registerForm.value.username).subscribe((x)=>{
+        this.username=x
+        if(!x){
+          this.uservice.addUser(this.registerForm.value).subscribe((x)=>{
       
+               })
+
+        }
+    
+  
+      })
+
+    }
+    else{
+      this.uservice.checkUsername(this.registerForm.value.username).subscribe((x)=>{
+        this.username=x
+      })
+
+    }
+      
+
     })
+   
+ 
 
   }
+ 
 
 }

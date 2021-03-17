@@ -19,6 +19,9 @@ export class AuthenticateService {
     return this.http.put(environment.baseUserUrl+"user/incrementfa/"+username,"")
 
   }
+  clearfa(userid){
+    return this.http.put(environment.baseUserUrl+"user/clearfa/"+userid,"")
+  }
 
   isLocked(username){
     return this.http.get(environment.baseUserUrl+"user/isLocked/"+username)

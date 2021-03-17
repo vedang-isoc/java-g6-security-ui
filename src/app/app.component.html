@@ -2,15 +2,15 @@
   <nav>
     <a routerLink="/">Home</a>
    
-    <a *ngIf="(userrole | async) === 'ROLE_USER' " routerLink="/user">User</a>
+  
    
-      <a *ngIf="(userrole | async) === 'ROLE_ADMIN' " routerLink="/admin">Admin</a>
+    
 
    
-   <a routerLink="/register">Register</a>
-    <a routerLink="/login">Login</a>
-    <a (click)="logout()">Logout</a>
-    <a (click)="profile()">Profile</a>
+   <a routerLink="/register" *ngIf="(userrole | async) === null">Register</a>
+    <a *ngIf="(userrole | async) === null"  routerLink="/login">Login</a>
+    <a  *ngIf="(userrole | async) === 'user'" (click)="logout()">Logout</a>
+    <a (click)="profile()" *ngIf="(userrole | async) === 'user'">Profile</a>
     
     
   </nav>

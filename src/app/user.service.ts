@@ -30,4 +30,12 @@ export class UserService {
      isProfileCreated(userid){
        return this.http.get(environment.baseUserUrl+"user/isProfileCreated/"+userid)
      }
+     checkUsername(username:String){
+      return this.http.get(environment.baseUserUrl+"user/username/"+username)
+
+     }
+     checkEmail(email:String){
+      return this.http.get(environment.baseUserUrl+"user/email/"+email)
+
+     }
 }

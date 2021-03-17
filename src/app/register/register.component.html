@@ -7,3 +7,6 @@
     <input type="submit" value="Register" (click)="registeruser()">
 
 </form>
+<div *ngIf="email && !username"> Account already exists on this email </div>
+<div *ngIf="username"> This username has already been taken </div>
+<!-- <div *ngIf="username && email"> This username has already been taken </div> -->

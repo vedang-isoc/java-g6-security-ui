@@ -1,9 +1,14 @@
 <p>login works!</p>
 <h1>Login Form</h1>
+<h3 *ngIf="!isLocked">Your Account Will Get locked On 3 Failed Login Attempts</h3>
 <form [formGroup]="loginForm">
     Username:<input type="text" formControlName="username"><br><br>
     Password:<input type="password" formControlName="password"><br><br>
     <input type="submit" value="Login" (click)="loginuser()">
     
 </form>
-<div *ngIf="isLocked">Your Account has been locked</div>
+<div *ngIf="isLocked">Your Account has been locked
+    <h4>You need to send unlock request through mail to unlock you account</h4>
+</div>
+<div *ngIf="wpassword && !isLocked">Wrong Password No Of Failed Attempts {{failedattempts}}</div>
+<div *ngIf="wusername && !isLocked">Username Not Found</div>

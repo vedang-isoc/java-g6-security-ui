@@ -10,6 +10,9 @@ import { AuthenticateService } from '../authenticate.service';
 })
 export class LoginComponent implements OnInit {
   isLocked
+  wpassword
+  wusername
+  failedattempts
 
   constructor(
     private as:AuthenticateService,private router:Router
@@ -39,6 +42,9 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (data:any) => {
             console.log(data)
+            this.as.clearfa(sessionStorage.getItem("userId")).subscribe((x)=>{
+
+            })
              if(data.role==="user"){
                this.router.navigate(["/user"])
              }
@@ -49,6 +55,20 @@ export class LoginComponent implements OnInit {
           (err)=>{
             this.as.incrementfailedattempt(this.loginForm.value.username).subscribe((data)=>{
               console.log("incremented");
+              if(data>-1){
+                this.wpassword=true
+                this.wusername=false
+                this.isLocked=false
+                this.failedattempts=data
+                if(data===3){
+                  this.isLocked=true
+                }
+              }
+              if(data===-1){
+                this.wusername=true
+                this.wpassword=false
+                this.isLocked=false
+              }
               
             })
             console.log("incremented")
