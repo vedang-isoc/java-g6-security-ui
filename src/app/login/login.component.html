@@ -12,3 +12,9 @@
 </div>
 <div *ngIf="wpassword && !isLocked">Wrong Password No Of Failed Attempts {{failedattempts}}</div>
 <div *ngIf="wusername && !isLocked">Username Not Found</div>
+
+
+<button (click)='startTimer()'>Send Otp</button><br>
+
+
+<button  (click)='otpresend()'>Resend</button> otp in <label>{{timeLeft}} Seconds</label>

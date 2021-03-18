@@ -9,7 +9,7 @@ import { UsermoduleModule } from './usermodule/usermodule.module';
 import { AdminModule } from './admin/admin.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthinterceptorService } from './authinterceptor.service';
 import { RegisterComponent } from './register/register.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
@@ -29,7 +29,8 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
     UsermoduleModule,
     AdminModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
 

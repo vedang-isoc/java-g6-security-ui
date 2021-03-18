@@ -4,3 +4,25 @@
 <div *ngIf="!activated">
     <div>Account Not Verified</div>
 </div>
+<button (click)="deleteA()">Delete My Account</button><br><br>
+<div *ngIf="delete">
+    <form #deleteForm="ngForm" (ngSubmit)="deleteAcc(deleteForm)">
+       
+        password: <input type="password" name="pwd" ngModel><br><br>
+        
+        <input type="submit" value="Delete">
+    </form>
+    
+</div>
+<button (click)="password()">Change Password</button>
+<div *ngIf="changePWd">
+    <form #changePwdForm="ngForm" (ngSubmit)="changePwd(changePwdForm)">
+
+        New Password: <input type="password" name="pwd" ngModel><br><br>
+       
+        Confirm New Password: <input type="password" name="npwd" ngModel><br><br>
+        <div *ngIf="notmatch">Password Does Not Match</div>
+        
+        <input type="submit" value="Confirm">
+    </form>
+</div>

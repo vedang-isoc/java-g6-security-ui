@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   wpassword
   wusername
   failedattempts
+  resendotp
 
   constructor(
     private as:AuthenticateService,private router:Router
@@ -81,5 +82,30 @@ export class LoginComponent implements OnInit {
   
 
   }
+  timeLeft: number = 60;
+  interval;
 
+startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft===0){
+        this.resendotp=true
+      }
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 60;
+      }
+    },1000)
+  }
+  otpresend(){
+    if(this.resendotp){
+      alert("resent")
+    }else{
+      alert("not yet")
+    }
+
+  }
+
+
+ 
 }

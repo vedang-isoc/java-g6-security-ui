@@ -38,4 +38,16 @@ export class UserService {
       return this.http.get(environment.baseUserUrl+"user/email/"+email)
 
      }
+     checkPassword(password:String,userid:any){
+       return this.http.get(environment.baseUserUrl+"user/checkpwd/"+userid+"/"+password)
+
+      
+     }
+     changePwd(password:String,userid:String){
+       return this.http.put(environment.baseUserUrl+"user/password/"+userid+"/"+password,"")
+         
+    }
+     deleteAccount(){
+
+     }
 }
